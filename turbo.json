@@ -5,17 +5,47 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "env": ["NODE_ENV"],
+      "outputs": []
     },
-    "lint": {
-      "dependsOn": ["^lint"]
+
+    "build:web": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.web*"],
+      "env": ["NODE_ENV", "VITE_API_URL", "VITE_PUBLIC_KEY"],
+      "outputs": ["dist/**"]
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+
+    "build:desktop": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.desktop*"],
+      "env": ["NODE_ENV", "ELECTRON_API_URL"],
+      "outputs": ["dist/**", "release/**"]
     },
-    "dev": {
+
+    "build:server": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.server*"],
+      "env": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "JWT_SECRET"],
+      "outputs": ["dist/**"]
+    },
+
+    "dev:web": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": [".env.web*"]
+    },
+
+    "dev:desktop": {
+      "cache": false,
+      "persistent": true,
+      "inputs": [".env.desktop*"]
+    },
+
+    "dev:server": {
+      "cache": false,
+      "persistent": true,
+      "inputs": [".env.server*"]
     }
   }
 }
