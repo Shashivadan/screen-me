@@ -1,5 +1,5 @@
 {
-  "name": "apis",
+  "name": "@repo/api",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
@@ -11,9 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@orpc/client": "^1.13.0",
     "@orpc/server": "^1.12.3",
     "@repo/db": "workspace:*",
-    "arktype": "^2.1.29",
+    "arktype": "catalog:",
     "consola": "^3.4.2",
     "hono": "^4.11.1",
     "tsx": "^4.21.0",

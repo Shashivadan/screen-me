@@ -1,3 +1,5 @@
 packages:
   - "apps/*"
   - "packages/*"
+catalog:
+  arktype: ^2.1.29

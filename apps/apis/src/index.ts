@@ -4,7 +4,6 @@ import { onError } from "@orpc/server";
 import { router } from "./router/index";
 import { Hono } from "hono";
 import { createContext } from "./orpc/context";
-import consola from "./utils/console";
 import { nodeEnv } from "./utils/env";
 
 const app = new Hono();
@@ -30,7 +29,6 @@ app.use("/rpc/*", async (c, next) => {
 
   await next();
 });
-
 
 export default {
   fetch: app.fetch,

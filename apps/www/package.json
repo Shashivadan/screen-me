@@ -14,6 +14,8 @@
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@fontsource-variable/nunito-sans": "^5.2.7",
+    "@orpc/client": "^1.13.0",
+    "@orpc/tanstack-query": "^1.13.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
     "@tanstack/react-router": "^1.132.0",
@@ -21,6 +23,7 @@
     "@tanstack/react-router-ssr-query": "^1.131.7",
     "@tanstack/react-start": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
+    "arktype": "catalog:",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
@@ -35,6 +38,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
+    "@repo/api": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/devtools-vite": "^0.3.11",
     "@tanstack/eslint-config": "^0.3.0",

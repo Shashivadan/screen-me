@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "@fontsource-variable/nunito-sans": "^5.2.7",
+    "@orpc/client": "^1.13.0",
     "@radix-ui/react-slot": "^1.2.4",
+    "arktype": "^2.1.29",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",

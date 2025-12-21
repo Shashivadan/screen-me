@@ -4,9 +4,19 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    arktype:
+      specifier: ^2.1.29
+      version: 2.1.29
+
 importers:
 
   .:
+    dependencies:
+      cross-env:
+        specifier: ^10.1.0
+        version: 10.1.0
     devDependencies:
       prettier:
         specifier: ^3.6.2
@@ -20,12 +30,24 @@ importers:
 
   apps/apis:
     dependencies:
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
       '@orpc/server':
         specifier: ^1.12.3
         version: 1.12.3(crossws@0.4.1(srvx@0.9.8))(ws@8.18.3)
       '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
+      arktype:
+        specifier: 'catalog:'
+        version: 2.1.29
+      consola:
+        specifier: ^3.4.2
+        version: 3.4.2
+      hono:
+        specifier: ^4.11.1
+        version: 4.11.1
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -60,12 +82,18 @@ importers:
       '@electron-toolkit/utils':
         specifier: ^4.0.0
         version: 4.0.0(electron@39.2.6)
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
       '@tailwindcss/vite':
         specifier: ^4.0.6
         version: 4.1.17(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+      arktype:
+        specifier: 'catalog:'
+        version: 2.1.29
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -120,7 +148,7 @@ importers:
         version: 39.2.6
       electron-builder:
         specifier: ^26.0.12
-        version: 26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+        version: 26.0.12(electron-builder-squirrel-windows@26.0.12)
       electron-vite:
         specifier: ^5.0.0
         version: 5.0.0(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
@@ -154,12 +182,18 @@ importers:
 
   apps/web:
     dependencies:
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
+      arktype:
+        specifier: 'catalog:'
+        version: 2.1.29
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -221,6 +255,12 @@ importers:
       '@fontsource-variable/nunito-sans':
         specifier: ^5.2.7
         version: 5.2.7
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
+      '@orpc/tanstack-query':
+        specifier: ^1.13.0
+        version: 1.13.0(@orpc/client@1.13.0)(@tanstack/query-core@5.90.12)
       '@tailwindcss/vite':
         specifier: ^4.0.6
         version: 4.1.17(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
@@ -242,6 +282,9 @@ importers:
       '@tanstack/router-plugin':
         specifier: ^1.132.0
         version: 1.139.14(@tanstack/react-router@1.139.14(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+      arktype:
+        specifier: 'catalog:'
+        version: 2.1.29
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -253,7 +296,7 @@ importers:
         version: 0.544.0(react@19.2.1)
       nitro:
         specifier: latest
-        version: 3.0.1-alpha.1(chokidar@3.6.0)(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3))(lru-cache@11.2.4)(rollup@4.53.3)(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+        version: 3.0.1-alpha.1(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3))(lru-cache@11.2.4)(rollup@4.53.3)(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
       radix-ui:
         specifier: ^1.4.3
         version: 1.4.3(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -279,6 +322,9 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.9.2)(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
     devDependencies:
+      '@repo/api':
+        specifier: workspace:*
+        version: link:../apis
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -327,9 +373,15 @@ importers:
 
   packages/db:
     dependencies:
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
       '@paralleldrive/cuid2':
         specifier: ^3.0.4
         version: 3.0.4
+      arktype:
+        specifier: ^2.1.29
+        version: 2.1.29
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -354,6 +406,13 @@ importers:
         version: 5.9.3
 
   packages/eslint-config:
+    dependencies:
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
+      arktype:
+        specifier: ^2.1.29
+        version: 2.1.29
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
@@ -389,16 +448,29 @@ importers:
         specifier: ^8.46.3
         version: 8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.2)
 
-  packages/typescript-config: {}
+  packages/typescript-config:
+    dependencies:
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
+      arktype:
+        specifier: ^2.1.29
+        version: 2.1.29
 
   packages/ui:
     dependencies:
       '@fontsource-variable/nunito-sans':
         specifier: ^5.2.7
         version: 5.2.7
+      '@orpc/client':
+        specifier: ^1.13.0
+        version: 1.13.0
       '@radix-ui/react-slot':
         specifier: ^1.2.4
         version: 1.2.4(@types/react@19.2.2)(react@19.2.1)
+      arktype:
+        specifier: ^2.1.29
+        version: 2.1.29
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -494,6 +566,12 @@ packages:
   '@antfu/ni@25.0.0':
     resolution: {integrity: sha512-9q/yCljni37pkMr4sPrI3G4jqdIk074+iukc5aFJl7kmDCCsiJrbZ6zKxnES1Gwg+i9RcDZwvktl23puGslmvA==}
     hasBin: true
+
+  '@ark/schema@0.56.0':
+    resolution: {integrity: sha512-ECg3hox/6Z/nLajxXqNhgPtNdHWC9zNsDyskwO28WinoFEnWow4IsERNz9AnXRhTZJnYIlAJ4uGn3nlLk65vZA==}
+
+  '@ark/util@0.56.0':
+    resolution: {integrity: sha512-BghfRC8b9pNs3vBoDJhcta0/c1J1rsoS1+HgVUreMFPdhz/CRAKReAu57YEllNaSy98rWAdY1gE+gFup7OXpgA==}
 
   '@asamuzakjp/css-color@4.1.0':
     resolution: {integrity: sha512-9xiBAtLn4aNsa4mDnpovJvBn72tNEIACyvlqaNJ+ADemR+yeMJWnBudOi2qGDviJa7SwcDOU/TRh5dnET7qk0w==}
@@ -821,6 +899,9 @@ packages:
 
   '@emnapi/wasi-threads@1.1.0':
     resolution: {integrity: sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ==}
+
+  '@epic-web/invariant@1.0.0':
+    resolution: {integrity: sha512-lrTPqgvfFQtR/eY/qkIzp98OGdNJu0m5ji3q/nJI8v3SXkRKEnWiOxMmbvcSoAIzv/cGiuvRy57k4suKQSAdwA==}
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
@@ -1699,6 +1780,9 @@ packages:
   '@orpc/client@1.12.3':
     resolution: {integrity: sha512-Bk0Z1k6Yiny/sRRtvPRIzPi9w2lIGXadtaTdBI6G0qkhTicKYYABi6bnkchKLN+Ud6zOqD8XwZAe/NuZPz32XQ==}
 
+  '@orpc/client@1.13.0':
+    resolution: {integrity: sha512-50MWjaQrz+eSSymmcJuzF+1mHSgObAKht0KpizA2+ZxpFpeyIYX1JGGvDPILYtHp7EyIOoN5ngwp7j/RHc7UeQ==}
+
   '@orpc/contract@1.12.3':
     resolution: {integrity: sha512-WQJ9ljzZ8HRnRiRuDAYyez93nFbOYlTnt4RDDkZxy911mPIC+9e7JYOsgB2TThQCC8ue/crg5LRk46cEqWJYTw==}
 
@@ -1724,6 +1808,14 @@ packages:
       '@opentelemetry/api':
         optional: true
 
+  '@orpc/shared@1.13.0':
+    resolution: {integrity: sha512-NHch9ug7fX2CJNDUXNGxPRgNWmMAdIVuWpaRL04NiVKRQ1xK17NPcRzjr01cPvEbX9qwEUlhB2USU6MXWJ47rw==}
+    peerDependencies:
+      '@opentelemetry/api': '>=1.9.0'
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+
   '@orpc/standard-server-aws-lambda@1.12.3':
     resolution: {integrity: sha512-kh8HnwryMIWJJ4601kMJ4dlTBOnqLL7+Xk7zz0XSX24geHgutMb1cRMz4UcHg2ttoLTFWjCCJv7Xc6+AOMWONg==}
 
@@ -1738,14 +1830,29 @@ packages:
   '@orpc/standard-server-fetch@1.12.3':
     resolution: {integrity: sha512-RygTJ5eD5Xx4x9wb5J9YS2qZ6QfIvr7lUqniQjw5+Inrvw8BjRdDwZffOrXRAldO5hu8AydJQceqE2rUEj+mRw==}
 
+  '@orpc/standard-server-fetch@1.13.0':
+    resolution: {integrity: sha512-g5rHY64YuDsuUIQm2en0uI9ioEErwE6sByGHZ1Plak/Y+g19sFZs44Y1AmstS5q5coE+oEudpwhYrUTLjyggwQ==}
+
   '@orpc/standard-server-node@1.12.3':
     resolution: {integrity: sha512-wGxunFbum4sed0cdN2n2b2+D9u2fQL9aJjzYaVYT+rvobxA9huYglFXe1R9fCJoYrycyO2bhoACgDdRZesBCIA==}
 
   '@orpc/standard-server-peer@1.12.3':
     resolution: {integrity: sha512-woX6hBIM20E2n0RAHZpx06Vxq4zPt7Gtxj2EPeQSvCFS/Wh9MtOgSzGaGcmbuPRssb72xOUcP1bbqoIbAVUZZg==}
 
+  '@orpc/standard-server-peer@1.13.0':
+    resolution: {integrity: sha512-J8Z2Xl9CMAjxVPBZApBk3Pw46NAvUq/uDGFwR5udGt6Eq97w4Mz2uACvezpS13hn/r6CHDUQpErvmdAQ9AxN9A==}
+
   '@orpc/standard-server@1.12.3':
     resolution: {integrity: sha512-m69mZ0D3u/zCKW0RXWYlPOW+0xqMA8mfHjpdP+B2SwLM2MUPr3P0R0J/RjAyffbja3Dj5QPKpL0xkIyDxELodA==}
+
+  '@orpc/standard-server@1.13.0':
+    resolution: {integrity: sha512-Sh+Vz8FiEkXJpaIERoUAe99GAK5xAN8dGl2SwkzAWm6QYex7pXVThaVOSuIG2X5UdYnkSehOB4e6/b3/lbiCNw==}
+
+  '@orpc/tanstack-query@1.13.0':
+    resolution: {integrity: sha512-7oZw6lbt68BBKu/1ux3j+H+HR9JbNbi5erADKRzO36H1BOP0ehHbZuOkL0nB7DJKUw1hx1snnwYn8Rnq6wCLDA==}
+    peerDependencies:
+      '@orpc/client': 1.13.0
+      '@tanstack/query-core': '>=5.80.2'
 
   '@oxc-minify/binding-android-arm64@0.96.0':
     resolution: {integrity: sha512-lzeIEMu/v6Y+La5JSesq4hvyKtKBq84cgQpKYTYM/yGuNk2tfd5Ha31hnC+mTh48lp/5vZH+WBfjVUjjINCfug==}
@@ -3641,6 +3748,12 @@ packages:
   aria-query@5.3.0:
     resolution: {integrity: sha512-b0P0sZPKtyu8HkeRAfCq0IfURZK+SuwMjY1UXGBU27wpAiTwQAIlq56IbIO+ytk/JjS1fMR14ee5WBBfKi5J6A==}
 
+  arkregex@0.0.5:
+    resolution: {integrity: sha512-ncYjBdLlh5/QnVsAA8De16Tc9EqmYM7y/WU9j+236KcyYNUXogpz3sC4ATIZYzzLxwI+0sEOaQLEmLmRleaEXw==}
+
+  arktype@2.1.29:
+    resolution: {integrity: sha512-jyfKk4xIOzvYNayqnD8ZJQqOwcrTOUbIU4293yrzAjA3O1dWh61j71ArMQ6tS/u4pD7vabSPe7nG3RCyoXW6RQ==}
+
   array-buffer-byte-length@1.0.2:
     resolution: {integrity: sha512-LHE+8BuR7RYGDKvnrmcuSq3tDcKv9OFEXQt/HpbZhY7V6h0zlUXutnAD82GiFx9rdieCMjkvtcsPqBwgUl1Iiw==}
     engines: {node: '>= 0.4'}
@@ -4008,6 +4121,11 @@ packages:
 
   cross-dirname@0.1.0:
     resolution: {integrity: sha512-+R08/oI0nl3vfPcqftZRpytksBXDzOUveBq/NBVx0sUp1axwzPQrKinNx5yd5sxPu8j1wIy8AfnVQ+5eFdha6Q==}
+
+  cross-env@10.1.0:
+    resolution: {integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -5082,6 +5200,10 @@ packages:
   hermes-parser@0.25.1:
     resolution: {integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==}
 
+  hono@4.11.1:
+    resolution: {integrity: sha512-KsFcH0xxHes0J4zaQgWbYwmz3UPOOskdqZmItstUG93+Wk1ePBLkLGwbP9zlmh1BFUiL8Qp+Xfu9P7feJWpGNg==}
+    engines: {node: '>=16.9.0'}
+
   hosted-git-info@4.1.0:
     resolution: {integrity: sha512-kyCuEOWjJqZuDbRHzL8V93NzQhwIB71oFWSyzVo+KPZI+pnQPPxucdkrOZvkLRnrf5URsQM+IJ09Dw29cRALIA==}
     engines: {node: '>=10'}
@@ -5826,6 +5948,7 @@ packages:
   next@16.0.7:
     resolution: {integrity: sha512-3mBRJyPxT4LOxAJI6IsXeFtKfiJUbjCLgvXO02fV8Wy/lIhPvP94Fe7dGhUgHXcQy4sSuYwQNcOLhIfOm0rL0A==}
     engines: {node: '>=20.9.0'}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -7520,6 +7643,12 @@ snapshots:
       package-manager-detector: 1.6.0
       tinyexec: 1.0.2
 
+  '@ark/schema@0.56.0':
+    dependencies:
+      '@ark/util': 0.56.0
+
+  '@ark/util@0.56.0': {}
+
   '@asamuzakjp/css-color@4.1.0':
     dependencies:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
@@ -7980,6 +8109,8 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@epic-web/invariant@1.0.0': {}
 
   '@esbuild-kit/core-utils@3.3.2':
     dependencies:
@@ -8607,6 +8738,15 @@ snapshots:
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
+  '@orpc/client@1.13.0':
+    dependencies:
+      '@orpc/shared': 1.13.0
+      '@orpc/standard-server': 1.13.0
+      '@orpc/standard-server-fetch': 1.13.0
+      '@orpc/standard-server-peer': 1.13.0
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
   '@orpc/contract@1.12.3':
     dependencies:
       '@orpc/client': 1.12.3
@@ -8643,6 +8783,11 @@ snapshots:
       radash: 12.1.1
       type-fest: 5.3.1
 
+  '@orpc/shared@1.13.0':
+    dependencies:
+      radash: 12.1.1
+      type-fest: 5.3.1
+
   '@orpc/standard-server-aws-lambda@1.12.3':
     dependencies:
       '@orpc/shared': 1.12.3
@@ -8667,6 +8812,13 @@ snapshots:
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
+  '@orpc/standard-server-fetch@1.13.0':
+    dependencies:
+      '@orpc/shared': 1.13.0
+      '@orpc/standard-server': 1.13.0
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
   '@orpc/standard-server-node@1.12.3':
     dependencies:
       '@orpc/shared': 1.12.3
@@ -8682,9 +8834,30 @@ snapshots:
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
+  '@orpc/standard-server-peer@1.13.0':
+    dependencies:
+      '@orpc/shared': 1.13.0
+      '@orpc/standard-server': 1.13.0
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
   '@orpc/standard-server@1.12.3':
     dependencies:
       '@orpc/shared': 1.12.3
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
+  '@orpc/standard-server@1.13.0':
+    dependencies:
+      '@orpc/shared': 1.13.0
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
+  '@orpc/tanstack-query@1.13.0(@orpc/client@1.13.0)(@tanstack/query-core@5.90.12)':
+    dependencies:
+      '@orpc/client': 1.13.0
+      '@orpc/shared': 1.13.0
+      '@tanstack/query-core': 5.90.12
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
@@ -10691,7 +10864,7 @@ snapshots:
 
   app-builder-bin@5.0.0-alpha.12: {}
 
-  app-builder-lib@26.0.12(dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)))(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)):
+  app-builder-lib@26.0.12(dmg-builder@26.0.12)(electron-builder-squirrel-windows@26.0.12):
     dependencies:
       '@develar/schema-utils': 2.6.5
       '@electron/asar': 3.2.18
@@ -10708,7 +10881,7 @@ snapshots:
       chromium-pickle-js: 0.2.0
       config-file-ts: 0.2.8-rc1
       debug: 4.4.3
-      dmg-builder: 26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+      dmg-builder: 26.0.12(electron-builder-squirrel-windows@26.0.12)
       dotenv: 16.6.1
       dotenv-expand: 11.0.7
       ejs: 3.1.10
@@ -10743,6 +10916,16 @@ snapshots:
   aria-query@5.3.0:
     dependencies:
       dequal: 2.0.3
+
+  arkregex@0.0.5:
+    dependencies:
+      '@ark/util': 0.56.0
+
+  arktype@2.1.29:
+    dependencies:
+      '@ark/schema': 0.56.0
+      '@ark/util': 0.56.0
+      arkregex: 0.0.5
 
   array-buffer-byte-length@1.0.2:
     dependencies:
@@ -11188,6 +11371,11 @@ snapshots:
   cross-dirname@0.1.0:
     optional: true
 
+  cross-env@10.1.0:
+    dependencies:
+      '@epic-web/invariant': 1.0.0
+      cross-spawn: 7.0.6
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -11363,9 +11551,9 @@ snapshots:
       minimatch: 3.1.2
       p-limit: 3.1.0
 
-  dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)):
+  dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12):
     dependencies:
-      app-builder-lib: 26.0.12(dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)))(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+      app-builder-lib: 26.0.12(dmg-builder@26.0.12)(electron-builder-squirrel-windows@26.0.12)
       builder-util: 26.0.11
       builder-util-runtime: 9.3.1
       fs-extra: 10.1.0
@@ -11466,7 +11654,7 @@ snapshots:
 
   electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12):
     dependencies:
-      app-builder-lib: 26.0.12(dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)))(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+      app-builder-lib: 26.0.12(dmg-builder@26.0.12)(electron-builder-squirrel-windows@26.0.12)
       builder-util: 26.0.11
       electron-winstaller: 5.4.0
     transitivePeerDependencies:
@@ -11474,13 +11662,13 @@ snapshots:
       - dmg-builder
       - supports-color
 
-  electron-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)):
+  electron-builder@26.0.12(electron-builder-squirrel-windows@26.0.12):
     dependencies:
-      app-builder-lib: 26.0.12(dmg-builder@26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12)))(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+      app-builder-lib: 26.0.12(dmg-builder@26.0.12)(electron-builder-squirrel-windows@26.0.12)
       builder-util: 26.0.11
       builder-util-runtime: 9.3.1
       chalk: 4.1.2
-      dmg-builder: 26.0.12(electron-builder-squirrel-windows@26.0.12(dmg-builder@26.0.12))
+      dmg-builder: 26.0.12(electron-builder-squirrel-windows@26.0.12)
       fs-extra: 10.1.0
       is-ci: 3.0.1
       lazy-val: 1.0.5
@@ -12434,6 +12622,8 @@ snapshots:
     dependencies:
       hermes-estree: 0.25.1
 
+  hono@4.11.1: {}
+
   hosted-git-info@4.1.0:
     dependencies:
       lru-cache: 6.0.0
@@ -13146,7 +13336,7 @@ snapshots:
 
   nf3@0.1.12: {}
 
-  nitro@3.0.1-alpha.1(chokidar@3.6.0)(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3))(lru-cache@11.2.4)(rollup@4.53.3)(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)):
+  nitro@3.0.1-alpha.1(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3))(lru-cache@11.2.4)(rollup@4.53.3)(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.1(srvx@0.9.8)
@@ -13161,7 +13351,7 @@ snapshots:
       srvx: 0.9.8
       undici: 7.16.0
       unenv: 2.0.0-rc.24
-      unstorage: 2.0.0-alpha.4(chokidar@3.6.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3)))(lru-cache@11.2.4)(ofetch@2.0.0-alpha.3)
+      unstorage: 2.0.0-alpha.4(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3)))(lru-cache@11.2.4)(ofetch@2.0.0-alpha.3)
     optionalDependencies:
       rollup: 4.53.3
       vite: 7.2.6(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)
@@ -14652,9 +14842,8 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.11.1
       '@unrs/resolver-binding-win32-x64-msvc': 1.11.1
 
-  unstorage@2.0.0-alpha.4(chokidar@3.6.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3)))(lru-cache@11.2.4)(ofetch@2.0.0-alpha.3):
+  unstorage@2.0.0-alpha.4(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3)))(lru-cache@11.2.4)(ofetch@2.0.0-alpha.3):
     optionalDependencies:
-      chokidar: 3.6.0
       db0: 0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(pg@8.16.3))
       lru-cache: 11.2.4
       ofetch: 2.0.0-alpha.3

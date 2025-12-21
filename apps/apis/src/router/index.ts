@@ -1,3 +1,4 @@
+import type { RouterClient } from "@orpc/server";
 import { createPlanet, findPlanet, listPlanet } from "./planet";
 
 export const router = {
@@ -7,3 +8,7 @@ export const router = {
     create: createPlanet,
   },
 };
+
+
+export type ORPCRouter = RouterClient<typeof router>;
+

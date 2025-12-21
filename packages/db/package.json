@@ -33,7 +33,9 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@orpc/client": "^1.13.0",
     "@paralleldrive/cuid2": "^3.0.4",
+    "arktype": "^2.1.29",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "pg": "^8.16.3"
